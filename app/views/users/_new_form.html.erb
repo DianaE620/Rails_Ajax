@@ -1,9 +1,9 @@
-
+<div id="new_container">
 <h1>Crearemos un nuevo usuario</h1>
 
 <br><br>
 
-<%= form_for @user do |u| %>
+<%= form_for @user, remote: true do |u| %>
   Nombre: <br>
   <%= u.text_field :name %><br><br>
   Email: <br>
@@ -13,12 +13,5 @@
   <%= u.submit "Create" %>
 <% end %>
 
-<% if @error %>
-  
-  <p class="error"><%= @errores.messages[:email].join %></p>
-  <p class="error"><%= @errores.messages[:name].join %></p>
-
-<% end %>
-
-<br><br>
-<%= link_to 'Index', root_path()%>
+<div class="error"></div>
+<div>

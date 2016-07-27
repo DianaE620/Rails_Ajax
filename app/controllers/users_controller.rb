@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
 
+
   def index
+    # sleep 2
     @usuarios = User.all
-    @user = User.new
   end
 
   def new
@@ -14,11 +15,17 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path
+      #Aqui ya podriamos hacer un redirect_to con ajax directo
+      #redirect_to root_path
+
+      #Pero vamos a practicar
+      respond_to do |format|
+        format.html
+        format.js
+      end
     else
-      @error = 1
+      #@error = 1
       @errores = @user.errors
-      render 'new'
     end
 
   end
@@ -31,13 +38,15 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params["id"])
     @user.update(user_params)
-    redirect_to root_path
 
+    redirect_to root_path
   end
 
+  #Haciendolo con ajax directo
   def destroy
     user = User.find(params["id"])
     user.destroy 
+    p "lala"
     redirect_to root_path
   end
 

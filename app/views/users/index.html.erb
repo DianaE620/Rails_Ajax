@@ -1,7 +1,7 @@
 <h1>Hola Usuarios</h1>
 <p>Esta es la lista de todos los usuarios creados</p>
 
-<table border="3" style="width:50%;">
+<table id="usuarios" border="3" style="width:50%;" >
   <tr>
     <td>Editar</td>
     <td>Nombre</td>
@@ -15,11 +15,12 @@
     <td> <%= u.name %> </td>
     <td> <%= u.email %> </td>
     <td> <%= u.password %> </td> 
-    <td> <%=link_to 'Borrar', user_path(u), method: :delete, data:{ confirm: "Seguro que quieres eliminar al usuario #{u.name}" } %> </td>
+    <td> <%=link_to 'Borrar', user_path(u), method: :delete, remote: true, data:{ confirm: "Seguro que quieres eliminar al usuario #{u.name}" } %> </td>
   </tr>
 <% end %>
 
 </table>
 
 <br>
-<%= link_to 'Nuevo', new_user_path%>
+<%= link_to 'Nuevo', new_user_path, id: 'new_link', remote: true %>
+

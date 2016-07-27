@@ -1,0 +1,15 @@
+//console.log("Entre a create JS");
+//console.log("<%= @errores %>");
+<% if @errores %>
+
+  <% if @errores.messages[:email] %>
+    $('.error').html("<p><%= @errores.messages[:email].join %></p>")
+  <% else %>
+    $('.error').html("<p><%= @errores.messages[:name].join %></p>")
+  <% end %>
+
+<% else %>
+  $("#usuarios").append('<tr><td><%= link_to "Editar", edit_user_path(@user) %></td><td><%= @user.name %></td><td><%= @user.email %></td><td><%= @user.password %></td><td><%= link_to "Borrar", user_path(@user), method: :delete, remote: true, data:{ confirm: "Seguro que quieres eliminar al usuario #{@user.name}" } %></td></tr>')
+  $("#new_container").remove()
+  $("#new_link").show()
+<% end %>

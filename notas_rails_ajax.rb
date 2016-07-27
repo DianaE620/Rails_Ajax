@@ -13,6 +13,9 @@ https://www.youtube.com/watch?v=t_MBLfrKTiE
 https://github.com/rails/jquery-ujs/wiki/ajax
 Ruby on Rails - Railscasts PRO #136 jQuery & Ajax (revised)
 https://www.youtube.com/watch?v=FBxVN7U1Qsk
+https://www.youtube.com/watch?v=n6eE-nd3ci4  #Different ways of implementing AJAX in your Ruby on Rails 
+https://launchschool.com/blog/the-detailed-guide-on-how-ajax-works-with-ruby-on-rails
+
 
 ............ Comandos rails
 http://guides.rubyonrails.org/command_line.html
@@ -56,7 +59,20 @@ Adds to the supplied attribute the supplied error message.
 person.errors[:name] = "must be set"
 person.errors[:name] # => ['must be set']
 
+......... Escape Javascript para render en JS ajax
+$('some_element').replaceWith('<%= j render 'some/element_template' %>');
+http://api.rubyonrails.org/classes/ActionView/Helpers/JavaScriptHelper.html#method-i-escape_javascript
+http://stackoverflow.com/questions/11127934/rendering-partial-in-js-erb-file
+http://stackoverflow.com/questions/12518526/what-does-the-j-function-in-rails-do
+https://coderwall.com/p/kqb3xq/rails-4-how-to-partials-ajax-dead-easy
+
+...... respond_to
+http://api.rubyonrails.org/classes/ActionController/MimeResponds.html
 
 ...... Investigar
 csrf_meta_tags (Seguridad en la aplicacion)
 http://stackoverflow.com/questions/9996665/rails-how-does-csrf-meta-tag-work
+
+
+
+
