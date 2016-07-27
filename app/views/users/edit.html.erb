@@ -1,0 +1,14 @@
+
+<h1>Editemos Usuarios</h1>
+
+<%= form_for @user do |u| %>
+  Nombre: <br>
+  <%= u.text_field :name %><br><br>
+  Email: <br>
+  <%= u.text_field :email %><br><br>
+  Password: <br> 
+  <%= u.text_field :password %><br><br>
+  <%= u.submit "Editar" %>
+<% end %>
+<br><br>
+<%= link_to 'Index', root_path()%>
